@@ -127,10 +127,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="lib\collusion.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="lib\std.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="namespace.h" />
+    <ClInclude Include="lib\collusion.h" />
+    <ClInclude Include="lib\std.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
