@@ -1,9 +1,19 @@
 #pragma once
 #include<math.h>
 
-//namespace mystd {
-//	typedef unsigned long long TIME;
-//	TIME lastTime = 0;
-//	int timeCount = 0;
-//	TIME GetTimeCount();//获取时间，TIME
-//}
+namespace mystd {
+
+	typedef unsigned long long Time;
+
+	class TIME {
+	private:
+		Time time;
+		int count;
+		unsigned long lastTime;
+	public:
+		TIME();
+		Time Value();
+		void Updata();
+	};
+
+}

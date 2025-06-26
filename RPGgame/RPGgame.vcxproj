@@ -130,13 +130,18 @@
     <ClCompile Include="lib\collusion.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="lib\std.cpp" />
+    <ClCompile Include="lib\scene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="lib\character.h" />
     <ClInclude Include="lib\collusion.h" />
     <ClInclude Include="lib\std.h" />
+    <ClInclude Include="lib\scene.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+    <None Include="src\config.json" />
+    <None Include="src\test.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

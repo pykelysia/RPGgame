@@ -1,14 +1,22 @@
-#include "../lib/std.h"
+#include "std.h"
 #include<graphics.h>
 #include<math.h>
 
-//mystd::TIME mystd::GetTimeCount() {
-//	TIME trueTime = 0 ;
-//	TIME mayTime = GetTickCount();
-//	if (lastTime > mayTime) {
-//		lastTime = mayTime;
-//		timeCount++;
-//	}
-//	trueTime = ULONG_MAX * timeCount + lastTime;
-//	return trueTime;
-//}
+namespace mystd {
+	TIME::TIME() {
+		this->lastTime = GetTickCount();
+		this->count = 0;
+		this->time = this->lastTime;
+	}
+	Time TIME::Value() {
+		this->Updata();
+		return this->time;
+	}
+	void TIME::Updata() {
+		DWORD mayTime = GetTickCount();
+		if (mayTime < this->lastTime)
+			count++;
+		this->lastTime = mayTime;
+		this->time = (Time)count * ULONG_MAX + this->lastTime;
+	}
+}
