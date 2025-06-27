@@ -144,6 +144,7 @@
     <ClInclude Include="lib\scene.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\README.md" />
     <None Include="cpp.hint" />
     <None Include="src\character_test.json" />
     <None Include="src\config.json" />

@@ -59,8 +59,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
-    <None Include="src\test.json" />
-    <None Include="src\config.json" />
-    <None Include="src\character_test.json" />
+    <None Include="src\test.json">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="src\character_test.json">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="src\config.json">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\README.md" />
   </ItemGroup>
 </Project>
