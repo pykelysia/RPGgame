@@ -1,5 +1,6 @@
 #include "collusion.h"
 #include <math.h>
+#include <iostream>
 
 namespace coll {
 #define Max(A, B) ((A) > (B) ? (A) : (B))
@@ -25,6 +26,10 @@ namespace coll {
 			break;
 		}
 	}
+	int CollusionBox::UseCollusion(CollusionBox& __box){
+		printf("there is no definition");
+		return false;
+	}
 
 	CollusionRectangle::CollusionRectangle(int x = 0, int y = 0, int length = 0, int width = 0) {
 		this->point.x = x;
@@ -38,7 +43,7 @@ namespace coll {
 		this->length = length;
 		this->width = width;
 	}
-	void CollusionRectangle::SetOnlyOne(int t, char c) {
+	void CollusionRectangle::SetOne(int t, char c) {
 		switch (c) {
 		case 'l':
 			this->length = t;
@@ -48,64 +53,28 @@ namespace coll {
 			break;
 		}
 	}
-	bool CollusionRectangle::UseCollusion(const CollusionRectangle& R) {
+	int CollusionRectangle::UseCollusion( CollusionRectangle& R) {
 		POINT p = R.GetPoint();
+		int X = this->length / 2 + R.GetLength() / 2;
+		int Y = this->width / 2 + R.GetWidth() / 2;
 		int deltaX = Max(this->point.x, p.x) - Min(this->point.x, p.x);
 		int deltaY = Max(this->point.y, p.y) - Min(this->point.y, p.y);
-		if (deltaX > this->length / 2 + R.GetLength() / 2)
-			return false;
-		if (deltaY > this->width / 2 + R.GetWidth() / 2)
-			return false;
-		return true;
-	}
-	bool CollusionRectangle::UseCollusion(const CollusionCircle& C) {
-		POINT p = C.GetPoint();
-		int deltaX = Max(this->point.x, p.x) - Min(this->point.x, p.x);
-		int deltaY = Max(this->point.y, p.y) - Min(this->point.y, p.y);
-		if (deltaX > this->length / 2 + C.GetRadius())
-			return false;
-		if (deltaY > this->width / 2 + C.GetRadius())
-			return false;
 
-		deltaX -= this->length / 2, deltaY -= this->width / 2;
-		if (deltaX > 0 && deltaY > 0){
-			double l = sqrt(U2(deltaX) + U2(deltaY));
-			if (l > C.GetRadius())
-				return false;
+		if (deltaX >= X) return 0;
+		if (deltaY >= Y) return 0;
+		if (deltaY < Y) {
+			if (this->point.y > p.y)
+				return dir::down;
+			else
+				return dir::up;
 		}
-		return true;
-	}
-
-	CollusionCircle::CollusionCircle(int x = 0, int y = 0, double radius = 0) {
-		this->point.x = x;
-		this->point.y = y;
-		this->radius = radius;
-	}
-	double CollusionCircle::GetRadius() const { return this->radius; }
-	void CollusionCircle::Reset(double radius) { this->radius = radius; }
-	bool CollusionCircle::UseCollusion(const CollusionRectangle& R) {
-		POINT p = R.GetPoint();
-		int deltaX = Max(this->point.x, p.x) - Min(this->point.x, p.x);
-		int deltaY = Max(this->point.y, p.y) - Min(this->point.y, p.y);
-		if (deltaX > this->radius + R.GetLength() / 2)
-			return false;
-		if (deltaY > this->radius + R.GetWidth() / 2)
-			return false;
-
-		deltaX -= R.GetLength()/ 2, deltaY -= R.GetWidth() / 2;
-		if (deltaX > 0 && deltaY > 0) {
-			double l = sqrt(U2(deltaX) + U2(deltaY));
-			if (l > this->radius)
-				return false;
+		else {
+		printf("@");
+			if (this->point.x > p.x)
+				return dir::right;
+			else
+				return dir::left;
 		}
-		return true;
-	}
-	bool CollusionCircle::UseCollusion(const CollusionCircle& C) {
-		int deltaX = Max(this->point.x, C.point.x) - Min(this->point.x, C.point.x);
-		int deltaY = Max(this->point.y, C.point.y) - Min(this->point.y, C.point.y);
-		double delta = sqrt(U2(deltaX) + U2(deltaY));
-		if (delta > this->radius + C.radius)
-			return false;
-		return true;
+		return 0;
 	}
 }

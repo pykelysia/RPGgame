@@ -2,6 +2,12 @@
 #define _COLLUSION_H_
 #include <iostream>
 namespace coll {
+	enum dir {
+		up = 1,
+		down,
+		left,
+		right
+	};
 	struct POINT {
 		int x;
 		int y;
@@ -16,6 +22,7 @@ namespace coll {
 		POINT GetPoint() const;
 		void SetPoint(POINT p);
 		void SetOnlyOne(int t, char c);//c in 'x' and 'y'
+		virtual int UseCollusion(CollusionBox& __box);
 	};
 
 	class CollusionRectangle;
@@ -30,20 +37,8 @@ namespace coll {
 		int GetLength() const;//x
 		int GetWidth() const;//y
 		void Reset(int length, int width);//(x, y)
-		void SetOnlyOne(int t, char c);//c in 'l' and 'w'
-		bool UseCollusion(const CollusionRectangle& R);
-		bool UseCollusion(const CollusionCircle& C);
+		void SetOne(int t, char c);//c in 'l' and 'w'
+		int UseCollusion(CollusionRectangle& R);
 	} Rectangle;
-	
-	typedef class CollusionCircle : public CollusionBox {
-	private:
-		double radius;
-	public:
-		CollusionCircle(int x, int y, double radius);
-		double GetRadius() const;
-		void Reset(double radius);
-		bool UseCollusion(const CollusionRectangle& R);
-		bool UseCollusion(const CollusionCircle& C);
-	} Circle;
 }
 #endif // !_COLLUSION_H_

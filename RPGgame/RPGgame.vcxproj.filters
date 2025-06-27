@@ -27,6 +27,12 @@
     <ClCompile Include="lib\scene.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="lib\character.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\notnpc.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\std.h">
@@ -41,10 +47,20 @@
     <ClInclude Include="lib\character.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="lib\npc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\notnpc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\attack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
     <None Include="src\test.json" />
     <None Include="src\config.json" />
+    <None Include="src\character_test.json" />
   </ItemGroup>
 </Project>

@@ -15,8 +15,8 @@ namespace scene {
 	Object::~Object() {
 		delete CollBox;
 	}
-	coll::Rectangle Object::GetCollBox() const {
-		return *(this->CollBox);
+	coll::Rectangle* Object::GetCollBox() const {
+		return this->CollBox;
 	}
 	void Object::Draw() {
 		coll::POINT __point = this->point;
@@ -51,6 +51,11 @@ namespace scene {
 	Scene::~Scene() {
 		for (auto it : this->ObjList) {
 			delete it;
+		}
+	}
+	void Scene::CheckCollusion(role::character& __character) {
+		for (auto it : this->ObjList) {
+			__character.CheckCollusion((it->GetCollBox()));
 		}
 	}
 	void Scene::Draw() {
