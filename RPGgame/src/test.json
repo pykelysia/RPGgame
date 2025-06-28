@@ -1,6 +1,5 @@
 {
     //场景测试
-    "sum": 1,
     "list": [
         {
             "pointx": 640,
@@ -9,5 +8,9 @@
             "width": 320,
             "diff": 0
         }
+    ],
+    "sum": 1,
+    "emenylist": [
+        "src/character_test.json"
     ]
 }

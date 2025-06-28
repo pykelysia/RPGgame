@@ -1,13 +1,12 @@
 #ifndef _NPC_H_
 #define _NPC_H_
 
-#include "character.h"
+#include "base/character.h"
 
 namespace role {
 	typedef class NoPlayerCharacter : public character {
 	private:
 	public:
-		bool CheckCollusion(coll::Rectangle& __box) override;
 	} npc;
 }
 

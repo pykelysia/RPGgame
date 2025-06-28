@@ -1,31 +1,46 @@
 #ifndef _NOTNPC_H_
 #define _NOTNPC_H_
 
-#include "character.h"
+#include "base/character.h"
 #include "attack.h"
 #include <vector>
-#include "std.h"
 namespace role {
-	class Emeny : public character {
-
-	};
 
 	class Player : public character {
 	private:
 		int life;
-		int attack;
 		bool state;     // true: uping;  false: downing
 						// if dont moving, state = downing;
 		DWORD time;		// the start of jumping;
 	public:
 		Player(const std::string url);
-		~Player();
+		~Player() override;
 
 		void ProcessEvent(ExMessage& msg);
 		bool CheckCollusion(coll::Rectangle* __box) override;
 		void Move();
-		void Hurt();
-		void Attack(std::vector<atk::Attack*> list);
+		void Hurt(int attack);
+		bool CheckAlive() const;
+		void Attack(std::vector<atk::Attack*>* list);
+	};
+
+
+	class Emeny : public character {
+	private:
+		int life;
+		int attack;
+		int start;
+		int end;
+
+	public:
+		Emeny(const std::string url);
+		~Emeny() override;
+
+		bool CheckCollusion(coll::Rectangle* __box) override;  // Óë»·¾³Åö×²
+		bool AttackPlayer(Player& __player);
+		void Move();
+		void Hurt(int __attack);
+		bool CheckAlive() const;
 	};
 }
 

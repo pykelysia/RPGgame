@@ -127,8 +127,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="lib\character.cpp" />
-    <ClCompile Include="lib\collusion.cpp" />
+    <ClCompile Include="lib\attack.cpp" />
+    <ClCompile Include="lib\base\character.cpp" />
+    <ClCompile Include="lib\base\collusion.cpp" />
     <ClCompile Include="lib\notnpc.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="lib\std.cpp" />
@@ -136,8 +137,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\attack.h" />
-    <ClInclude Include="lib\character.h" />
-    <ClInclude Include="lib\collusion.h" />
+    <ClInclude Include="lib\base\character.h" />
+    <ClInclude Include="lib\base\collusion.h" />
     <ClInclude Include="lib\notnpc.h" />
     <ClInclude Include="lib\npc.h" />
     <ClInclude Include="lib\std.h" />

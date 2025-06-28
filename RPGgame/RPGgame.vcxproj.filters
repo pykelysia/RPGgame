@@ -21,16 +21,19 @@
     <ClCompile Include="lib\std.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lib\collusion.cpp">
+    <ClCompile Include="lib\base\collusion.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="lib\scene.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lib\character.cpp">
+    <ClCompile Include="lib\base\character.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="lib\notnpc.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\attack.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,13 +41,13 @@
     <ClInclude Include="lib\std.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lib\collusion.h">
+    <ClInclude Include="lib\base\collusion.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="lib\scene.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lib\character.h">
+    <ClInclude Include="lib\base\character.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="lib\npc.h">

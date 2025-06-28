@@ -22,11 +22,13 @@ namespace role {
 	public:
 		character(const std::string url);
 		character(coll::POINT point = {0, 0}, int length = 0, int width = 0, int diff = 10);
-		~character();
+		virtual ~character();
+
+		coll::Rectangle* GetCollBox();
 
 		virtual bool CheckCollusion(coll::Rectangle* __box);
 		void Move();
-		void Draw();
+		void Draw() const;
 	};
 }
 

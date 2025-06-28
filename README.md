@@ -37,3 +37,23 @@ Player类构造函数中的json要求详见文件"RPGgame/src/character_test.json"中的"player
 #include "lib/notnpc.h"
 role::Player playerExample("yourJSONconfigfile.json");
 ```
+
+#### 2025 / 6 / 28
+
+实现Emeny, Attack(尚未测试)。更新了部分碰撞检测与反馈，排除了在Scene类实例在 delete/析构 时潜在的内存溢出问题。
+
+实现Emeny
+Emeny类构造函数中的json要求详见文件"RPGgame/src/character_test.json"中的"emeny"
+
+```
+#include "lib/notnpc.h"
+role::Emeny emenyExample("yourJSONconfigfile.json");
+```
+
+实现Attack
+Attack类构造函数中的json要求详见文件"RPGgame/src/attack.json"
+
+```
+#include "lib/attack.h"
+atk::Attack attackExample("yourJSONconfigfile.json");
+```
